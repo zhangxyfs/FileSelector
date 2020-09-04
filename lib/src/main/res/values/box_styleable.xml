@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="boxCheck">
+        <attr format="string" name="shaderStart"/>
+        <attr format="string" name="shaderEnd"/>
+        <attr format="reference|color" name="circleColor"/>
+        <attr format="integer" name="sizeDP"/>
+        <attr format="float" name="strokeRadius"/>
+        <attr format="float" name="bgRadius"/>
+        <attr format="float" name="zStrokeWidth"/>
+    </declare-styleable>
+</resources>

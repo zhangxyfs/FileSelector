@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr format="reference|color" name="album.dropdown.count.color"/>
+    <attr format="reference|color" name="album.dropdown.title.color"/>
+    <attr format="reference|color" name="album.element.color"/>
+    <attr format="reference" name="album.emptyView"/>
+    <attr format="reference|color" name="album.emptyView.textColor"/>
+    <attr format="reference|color" name="album.thumbnail.placeholder"/>
+    <attr format="reference|color" name="bottomToolbar.apply.textColor"/>
+    <attr format="reference|color" name="bottomToolbar.bg"/>
+    <attr format="reference|color" name="bottomToolbar.preview.textColor"/>
+    <attr format="reference|color" name="capture.textColor"/>
+    <attr format="reference|color" name="item.checkCircle.backgroundColor"/>
+    <attr format="reference|color" name="item.checkCircle.borderColor"/>
+    <attr format="reference|color" name="item.placeholder"/>
+    <attr format="reference" name="listPopupWindowStyle"/>
+    <attr format="reference|color" name="page.bg"/>
+    <attr format="reference|color" name="page.default.bg"/>
+    <attr format="reference|color" name="preview.bottomToolbar.apply.textColor"/>
+    <attr format="reference|color" name="preview.bottomToolbar.back.textColor"/>
+    <attr format="reference" name="toolbar"/>
+
+    <style name="Theme" parent="Theme.AppCompat.Light.NoActionBar" />
+
+    <style name="Theme.Box" parent="Theme">
+        <item name="colorPrimary">@color/boxColor</item>
+        <item name="colorPrimaryDark">@color/boxColorDark</item>
+        <item name="toolbar">@style/Toolbar.Box</item>
+        <item name="album.dropdown.title.color">@color/box_album_dropdown_title_text</item>
+        <item name="album.dropdown.count.color">@color/box_album_dropdown_count_text</item>
+        <item name="album.element.color">@android:color/black</item>
+        <item name="album.thumbnail.placeholder">@color/box_album_dropdown_thumbnail_placeholder</item>
+        <item name="album.emptyView">@drawable/ic_file_empty</item>
+        <item name="album.emptyView.textColor">@color/box_album_empty_view</item>
+        <item name="item.placeholder">@color/box_item_placeholder</item>
+        <item name="item.checkCircle.backgroundColor">@color/box_item_checkCircle_backgroundColor</item>
+        <item name="item.checkCircle.borderColor">@color/box_item_checkCircle_borderColor</item>
+        <item name="page.bg">@color/box_page_bg</item>
+        <item name="bottomToolbar.bg">@color/box_bottom_toolbar_bg</item>
+        <item name="bottomToolbar.preview.textColor">@color/box_bottom_toolbar_preview</item>
+        <item name="bottomToolbar.apply.textColor">@color/box_bottom_toolbar_apply</item>
+        <item name="preview.bottomToolbar.back.textColor">@color/box_preview_bottom_toolbar_back_text</item>
+        <item name="preview.bottomToolbar.apply.textColor">@color/box_preview_bottom_toolbar_apply</item>
+        <item name="listPopupWindowStyle">@style/Popup.Box</item>
+        <item name="capture.textColor">@color/box_capture</item>
+        <item name="page.default.bg">@color/boxBackground</item>
+    </style>
+
+    <style name="Toolbar.Box" parent="Base.AppBar.Theme"/>
+
+    <style name="Base.AppBar.Theme" parent="Widget.AppCompat.ActionBar">
+        <item name="contentInsetStartWithNavigation">0dp</item><!--最重要的参数-->
+    </style>
+
+    <style name="Popup.Box" parent="Widget.AppCompat.Light.ListPopupWindow">
+        <item name="android:popupBackground">@color/box_album_popup_bg</item>
+    </style>
+</resources>

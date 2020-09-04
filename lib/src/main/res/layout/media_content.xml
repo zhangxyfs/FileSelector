@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/picLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/pic_thumbnail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+
+        <ImageView
+            android:id="@+id/pic_collection"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="6dp"
+            android:src="@drawable/ic_file_collection" />
+
+        <com.z7dream.lib.selector.box.widget.CheckView
+            android:id="@+id/pic_check_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginRight="2dp" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/fileLayout"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:background="@color/box_color_white"
+        android:paddingStart="@dimen/box_margin_normal"
+        android:paddingLeft="@dimen/box_margin_normal">
+
+        <FrameLayout
+            android:id="@+id/type_layout"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true">
+
+            <ImageView
+                android:id="@+id/file_thumbnail"
+                android:layout_width="@dimen/box_view_width_32"
+                android:layout_height="@dimen/box_view_width_32"
+                android:layout_gravity="center" />
+
+            <ImageView
+                android:id="@+id/type_collection"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_file_collection" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/right_layout"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:minWidth="32dp"
+            android:paddingEnd="@dimen/box_margin_normal"
+            android:paddingRight="@dimen/box_margin_normal">
+
+            <TextView
+                android:id="@+id/file_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|right" />
+
+            <com.z7dream.lib.selector.box.widget.CheckView
+                android:id="@+id/file_check_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|right"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="2dp"
+                android:visibility="gone"
+                app:bgRadius="8.0"
+                app:circleColor="@color/box_color_divider"
+                app:shaderEnd="#00000000"
+                app:sizeDP="25"
+                app:strokeRadius="8.5"
+                app:zStrokeWidth="2.0" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/type_layout"
+            android:layout_alignBottom="@+id/type_layout"
+            android:layout_marginLeft="@dimen/box_margin_widget"
+            android:layout_toStartOf="@+id/right_layout"
+            android:layout_toLeftOf="@+id/right_layout"
+            android:layout_toEndOf="@+id/type_layout"
+            android:layout_toRightOf="@+id/type_layout"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/file_title"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/box_color_black"
+                android:textSize="@dimen/box_font_sp_14" />
+
+            <TextView
+                android:id="@+id/date_time"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:textColor="@color/box_color_font_middle"
+                android:textSize="@dimen/box_font_sp_14" />
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <View
+        android:id="@+id/last_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/fileLayout"
+        android:layout_marginStart="74dp"
+        android:layout_marginLeft="74dp"
+        android:background="@color/box_color_divider" />
+
+</merge>

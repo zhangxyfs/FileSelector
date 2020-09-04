@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="box_margin_normal">16dp</dimen>
+    <dimen name="box_margin_widget">8dp</dimen>
+
+    <dimen name="box_view_width_32">32dp</dimen>
+
+    <dimen name="box_font_sp_14">14sp</dimen>
+</resources>
