@@ -1,33 +1,30 @@
-package com.eblog.base.widget.box.utils
+package com.z7dream.lib.selector.box.utils
 
 import android.content.Context
 import android.provider.MediaStore
-import com.eblog.base.Appli
-import com.eblog.base.R
-import com.eblog.base.utils.listener.Callback10
-import com.eblog.base.utils.rx.RxSchedulersHelper
-import com.eblog.base.widget.box.MimeType
-import com.eblog.base.widget.box.MimeTypeManager
-import com.eblog.base.widget.box.SelectionSpec
-import com.eblog.base.widget.box.entity.Item
-import com.eblog.base.widget.box.loader.FileDataLoader
-import com.eblog.base.widget.matisse.internal.entity.IncapableCause
 import com.z7dream.lib.selector.R
+import com.z7dream.lib.selector.Z7Plugin
 import com.z7dream.lib.selector.box.MimeType
 import com.z7dream.lib.selector.box.MimeTypeManager
 import com.z7dream.lib.selector.box.SelectionSpec
-import io.reactivex.Observable
-import io.reactivex.disposables.Disposable
+import com.z7dream.lib.selector.box.entity.IncapableCause
+import com.z7dream.lib.selector.box.entity.Item
+import com.z7dream.lib.selector.box.loader.FileDataLoader
+import com.z7dream.lib.selector.utils.callback.Callback
+import com.z7dream.lib.selector.utils.rx.RxSchedulersHelper
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.disposables.Disposable
 import java.util.ArrayList
 
 object BoxUtils {
 
-    fun getAllFileCount(callback: Callback10<Int, Int, ArrayList<Disposable>>) {
+    fun getAllFileCount(callback: Callback.Callback10<Int, Int, ArrayList<Disposable>>) {
+        val context = Z7Plugin.instance.getListener()?.applicationContext()
         val list = ArrayList<Disposable>()
         list.add(
                 Observable.just(1)
                         .map {
-                            return@map getFileCountByMimeType(Appli.getContext(), MimeTypeManager.ofPic())
+                            return@map getFileCountByMimeType(context, MimeTypeManager.ofPic())
                         }
                         .compose(RxSchedulersHelper.io())
                         .subscribe({
@@ -39,7 +36,7 @@ object BoxUtils {
         list.add(
                 Observable.just(1)
                         .map {
-                            return@map getFileCountByMimeType(Appli.getContext(), MimeTypeManager.ofAudio())
+                            return@map getFileCountByMimeType(context, MimeTypeManager.ofAudio())
                         }
                         .compose(RxSchedulersHelper.io())
                         .subscribe({
@@ -51,7 +48,7 @@ object BoxUtils {
         list.add(
                 Observable.just(1)
                         .map {
-                            return@map getFileCountByMimeType(Appli.getContext(), MimeTypeManager.ofVideo())
+                            return@map getFileCountByMimeType(context, MimeTypeManager.ofVideo())
                         }
                         .compose(RxSchedulersHelper.io())
                         .subscribe({
@@ -63,7 +60,7 @@ object BoxUtils {
         list.add(
                 Observable.just(1)
                         .map {
-                            return@map getFileCountByMimeType(Appli.getContext(), MimeTypeManager.ofTxt())
+                            return@map getFileCountByMimeType(context, MimeTypeManager.ofTxt())
                         }
                         .compose(RxSchedulersHelper.io())
                         .subscribe({
@@ -75,7 +72,7 @@ object BoxUtils {
         list.add(
                 Observable.just(1)
                         .map {
-                            return@map getFileCountByMimeType(Appli.getContext(), MimeTypeManager.ofExcel())
+                            return@map getFileCountByMimeType(context, MimeTypeManager.ofExcel())
                         }
                         .compose(RxSchedulersHelper.io())
                         .subscribe({
@@ -87,7 +84,7 @@ object BoxUtils {
         list.add(
                 Observable.just(1)
                         .map {
-                            return@map getFileCountByMimeType(Appli.getContext(), MimeTypeManager.ofPpt())
+                            return@map getFileCountByMimeType(context, MimeTypeManager.ofPpt())
                         }
                         .compose(RxSchedulersHelper.io())
                         .subscribe({
@@ -99,7 +96,7 @@ object BoxUtils {
         list.add(
                 Observable.just(1)
                         .map {
-                            return@map getFileCountByMimeType(Appli.getContext(), MimeTypeManager.ofWord())
+                            return@map getFileCountByMimeType(context, MimeTypeManager.ofWord())
                         }
                         .compose(RxSchedulersHelper.io())
                         .subscribe({
@@ -111,7 +108,7 @@ object BoxUtils {
         list.add(
                 Observable.just(1)
                         .map {
-                            return@map getFileCountByMimeType(Appli.getContext(), MimeTypeManager.ofPdf())
+                            return@map getFileCountByMimeType(context, MimeTypeManager.ofPdf())
                         }
                         .compose(RxSchedulersHelper.io())
                         .subscribe({
@@ -123,7 +120,7 @@ object BoxUtils {
         list.add(
                 Observable.just(1)
                         .map {
-                            return@map getFileCountByMimeType(Appli.getContext(), MimeTypeManager.ofZip())
+                            return@map getFileCountByMimeType(context, MimeTypeManager.ofZip())
                         }
                         .compose(RxSchedulersHelper.io())
                         .subscribe({
@@ -136,15 +133,15 @@ object BoxUtils {
     }
 
 
-    fun getFileCountByMimeType(context: Context, mimeType: Set<MimeType>?): Int {
+    fun getFileCountByMimeType(context: Context?, mimeType: Set<MimeType>?): Int {
         val projection = arrayOf(
                 MediaStore.Files.FileColumns._ID,
-                PathUtils.FILE_PARENT,
+            PathUtils.FILE_PARENT,
                 MediaStore.Files.FileColumns.DISPLAY_NAME,
                 MediaStore.Files.FileColumns.MIME_TYPE,
                 MediaStore.Files.FileColumns.SIZE,
                 MediaStore.Files.FileColumns.DATE_MODIFIED,
-                PathUtils.FILE_PATH
+            PathUtils.FILE_PATH
         )
         val orderBy = "${PathUtils.DATA_TIME} DESC"
 
@@ -196,7 +193,7 @@ object BoxUtils {
                 selectionArgs = MimeTypeManager.picType()
             }
         }
-        val cursor = context.contentResolver.query(
+        val cursor = context?.contentResolver?.query(
                 MediaStore.Files.getContentUri(PathUtils.CONTENT_URL),
                 projection,
                 selection,

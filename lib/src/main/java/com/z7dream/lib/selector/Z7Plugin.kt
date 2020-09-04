@@ -1,8 +1,9 @@
-package com.z7dream.lib.selector.box
+package com.z7dream.lib.selector
 
 import android.content.Context
+import com.z7dream.lib.selector.box.entity.Item
 
-class SelectionPlugin private constructor() {
+class Z7Plugin private constructor() {
     private var mListener: SelectionListener? = null
 
     private fun init(listener: SelectionListener?) {
@@ -14,12 +15,14 @@ class SelectionPlugin private constructor() {
 
     interface SelectionListener {
         fun applicationContext(): Context
+
+        fun sendToIM(list: List<Item>)
     }
 
     companion object {
-        val instance: SelectionPlugin by
+        val instance: Z7Plugin by
         lazy(mode = LazyThreadSafetyMode.SYNCHRONIZED) {
-            SelectionPlugin()
+            Z7Plugin()
         }
     }
 }

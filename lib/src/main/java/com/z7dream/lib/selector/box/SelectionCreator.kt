@@ -10,8 +10,6 @@ import androidx.annotation.StyleRes
 import androidx.fragment.app.Fragment
 import com.eblog.base.widget.box.engine.ImageEngine
 import com.eblog.base.widget.box.filter.Filter
-import com.eblog.base.widget.box.ui.BoxActivity
-import com.eblog.base.widget.box.ui.SudokuActivity
 import java.util.*
 
 

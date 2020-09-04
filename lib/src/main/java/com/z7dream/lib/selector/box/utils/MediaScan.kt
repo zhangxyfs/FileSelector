@@ -1,9 +1,9 @@
-package com.eblog.base.widget.box.utils
+package com.z7dream.lib.selector.box.utils
 
 import android.media.MediaScannerConnection
 import android.net.Uri
 import android.util.Log
-import com.eblog.base.Appli
+import com.z7dream.lib.selector.Z7Plugin
 import java.util.*
 
 class MediaScan private constructor() {
@@ -26,7 +26,7 @@ class MediaScan private constructor() {
             }
         }
 
-        mConnection = MediaScannerConnection(Appli.getContext(), mClient)
+        mConnection = MediaScannerConnection(Z7Plugin.instance.getListener()?.applicationContext(), mClient)
     }
 
     private fun scanFile() {

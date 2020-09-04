@@ -3,7 +3,7 @@ package com.eblog.base.widget.box.filter
 import android.content.Context
 import com.eblog.base.widget.box.MimeType
 import com.eblog.base.widget.box.MimeTypeManager
-import com.z7dream.lib.selector.box.engine.entity.Item
+import com.z7dream.lib.selector.box.entity.Item
 import com.eblog.base.widget.matisse.internal.entity.IncapableCause
 
 abstract class Filter {

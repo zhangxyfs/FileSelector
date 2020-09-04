@@ -30,6 +30,7 @@
 
     <color name="box_color_white">#FFFFFF</color>
     <color name="box_color_black">#000000</color>
+    <color name="box_color_font_high">#1A1A1C</color>
     <color name="box_color_font_middle">#999999</color>
     <color name="box_color_divider">#D8D8D8</color>
 </resources>

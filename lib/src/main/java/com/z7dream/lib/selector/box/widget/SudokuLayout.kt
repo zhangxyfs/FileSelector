@@ -1,27 +1,23 @@
 package com.z7dream.lib.selector.box.widget
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.GridLayout
 import android.widget.LinearLayout
-import com.eblog.base.Appli
-import com.eblog.base.R
-import com.eblog.base.utils.cache.CacheManager
-import com.eblog.base.utils.tools.Utils
-import com.eblog.base.widget.box.MimeType
-import com.eblog.base.widget.box.MimeTypeManager
-import com.eblog.base.widget.box.SelectionSpec
 import com.z7dream.lib.selector.R
 import com.z7dream.lib.selector.box.MimeType
 import com.z7dream.lib.selector.box.MimeTypeManager
 import com.z7dream.lib.selector.box.SelectionSpec
+import com.z7dream.lib.selector.utils.CacheManager
+import com.z7dream.lib.selector.utils.Utils
 import kotlinx.android.synthetic.main.sudoku_content.view.*
 import java.io.File
 
-class SudokuLayout(context: Context, attrs: AttributeSet?) : GridLayout(context, attrs), View.OnClickListener {
-    private val size = Utils.getScreenWidth(Appli.getContext()) / 3
+class SudokuLayout(context: Context, attrs: AttributeSet?) : GridLayout(context, attrs),
+    View.OnClickListener {
     private val layoutList = ArrayList<LinearLayout>()
     private var mItemClickListener: ItemClickListener? = null
 
@@ -47,43 +43,89 @@ class SudokuLayout(context: Context, attrs: AttributeSet?) : GridLayout(context,
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun data() {
         for (view in layoutList) {
             setLayoutParamsSize(view)
             view.setOnClickListener(this)
         }
-        File(CacheManager.getEsCompanyPath(CacheManager.PIC, SelectionSpec.getInstance().companyId)).also {
+        File(
+            CacheManager.getEsCompanyPath(context,
+                CacheManager.PIC,
+                SelectionSpec.getInstance().companyId
+            )
+        ).also {
             picNum.text = "(${it.list().size})"
         }
-        File(CacheManager.getEsCompanyPath(CacheManager.VOICE, SelectionSpec.getInstance().companyId)).also {
+        File(
+            CacheManager.getEsCompanyPath(context,
+                CacheManager.VOICE,
+                SelectionSpec.getInstance().companyId
+            )
+        ).also {
             audioNum.text = "(${it.list().size})"
         }
-        File(CacheManager.getEsCompanyPath(CacheManager.VIDEO, SelectionSpec.getInstance().companyId)).also {
+        File(
+            CacheManager.getEsCompanyPath(context,
+                CacheManager.VIDEO,
+                SelectionSpec.getInstance().companyId
+            )
+        ).also {
             videoNum.text = "(${it.list().size})"
         }
-        File(CacheManager.getEsCompanyPath(CacheManager.TXT, SelectionSpec.getInstance().companyId)).also {
+        File(
+            CacheManager.getEsCompanyPath(context,
+                CacheManager.TXT,
+                SelectionSpec.getInstance().companyId
+            )
+        ).also {
             txtNum.text = "(${it.list().size})"
         }
-        File(CacheManager.getEsCompanyPath(CacheManager.EXCEL, SelectionSpec.getInstance().companyId)).also {
+        File(
+            CacheManager.getEsCompanyPath(context,
+                CacheManager.EXCEL,
+                SelectionSpec.getInstance().companyId
+            )
+        ).also {
             excelNum.text = "(${it.list().size})"
         }
-        File(CacheManager.getEsCompanyPath(CacheManager.PPT, SelectionSpec.getInstance().companyId)).also {
+        File(
+            CacheManager.getEsCompanyPath(context,
+                CacheManager.PPT,
+                SelectionSpec.getInstance().companyId
+            )
+        ).also {
             pptNum.text = "(${it.list().size})"
         }
-        File(CacheManager.getEsCompanyPath(CacheManager.WORD, SelectionSpec.getInstance().companyId)).also {
+        File(
+            CacheManager.getEsCompanyPath(context,
+                CacheManager.WORD,
+                SelectionSpec.getInstance().companyId
+            )
+        ).also {
             wordNum.text = "(${it.list().size})"
         }
-        File(CacheManager.getEsCompanyPath(CacheManager.PDF, SelectionSpec.getInstance().companyId)).also {
+        File(
+            CacheManager.getEsCompanyPath(context,
+                CacheManager.PDF,
+                SelectionSpec.getInstance().companyId
+            )
+        ).also {
             pdfNum.text = "(${it.list().size})"
         }
-        File(CacheManager.getEsCompanyPath(CacheManager.OTHER, SelectionSpec.getInstance().companyId)).also {
+        File(
+            CacheManager.getEsCompanyPath(context,
+                CacheManager.OTHER,
+                SelectionSpec.getInstance().companyId
+            )
+        ).also {
             zipNum.text = "(${it.list().size})"
         }
     }
 
     private fun setLayoutParamsSize(view: View) {
-        view.layoutParams.width = size
-        view.layoutParams.height = size
+        view.layoutParams.width = Utils.getScreenWidth(view.context) / 3
+        view.layoutParams.height = Utils.getScreenWidth(view.context) / 3
     }
 
     override fun onClick(p0: View?) {

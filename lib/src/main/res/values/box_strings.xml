@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="size_byte" translatable="false">B</string>
+    <string name="size_kbyte" translatable="false">KB</string>
+    <string name="size_mbyte" translatable="false">MB</string>
+    <string name="size_gbyte" translatable="false">GB</string>
+    <string name="size_tbype" translatable="false">TB</string>
+    <string name="size_pbypte" translatable="false">PB</string>
+    <string name="fileSizeSuffix" translatable="false"><xliff:g id="number" example="123">%1$s</xliff:g> <xliff:g id="unit" example="B">%2$s</xliff:g></string>
+
+    <string name="button_ok">我知道了</string>
+    <string name="error_over_count_default">您已经达到最大选择数量</string>
+    <string name="error_over_count">最多只能选择 %1$d 个图片</string>
+    <string name="error_over_image_count">最多只能选择 %1$d 个图片</string>
+    <string name="error_under_quality">图片质量太低</string>
+    <string name="error_over_quality">图片质量太高</string>
+    <string name="error_file_type">不支持的文件类型</string>
+    <string name="error_type_conflict">不能同时选择图片和视频</string>
+    <string name="error_type_allType">不能同时选择多种类型</string>
+    <string name="error_no_video_activity">没有支持视频预览的应用</string>
+    <string name="error_over_choice_size">该照片大于 %1$s M，无法选择将取消勾选</string>
+    <string name="error_over_original_size">"该照片大于 %1$d M，无法上传将取消勾选原图"</string>
+    <string name="error_over_original_count">"有 %1$d 张照片大于 %2$d M\n无法上传，将取消勾选原图"</string>
+    <string name="button_original">原图</string>
+    <string name="button_sure_default">确定</string>
+    <string name="button_sure">确定(%1$d)</string>
+
+    <string name="only_choice_n_filesize_str">您只能选择小于%1$s的文件</string>
+</resources>

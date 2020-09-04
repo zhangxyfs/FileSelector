@@ -4,7 +4,7 @@ import android.content.ContentResolver
 import android.net.Uri
 import android.webkit.MimeTypeMap
 import androidx.collection.ArraySet
-import androidx.core.graphics.PathUtils
+import com.z7dream.lib.selector.box.utils.PathUtils
 import com.z7dream.lib.selector.utils.FileType
 import java.util.*
 

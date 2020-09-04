@@ -1,9 +1,7 @@
 package com.z7dream.lib.selector.box.widget
 
-import android.content.ClipData
 import android.content.Context
 import android.text.Html
-import android.text.format.DateUtils
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -12,16 +10,19 @@ import android.widget.RelativeLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.z7dream.lib.selector.R
 import com.z7dream.lib.selector.box.SelectionSpec
-import com.z7dream.lib.selector.utils.Utils
+import com.z7dream.lib.selector.box.entity.Item
 import com.z7dream.lib.selector.utils.FileType
+import com.z7dream.lib.selector.utils.SizeFormat
+import com.z7dream.lib.selector.utils.Utils
 import kotlinx.android.synthetic.main.media_content.view.*
+import java.text.SimpleDateFormat
 import java.util.*
 import java.util.regex.Pattern
 
 class MediaLayout(context: Context, attrs: AttributeSet?) : RelativeLayout(context, attrs), View.OnClickListener {
     private var mListener: OnMediaItemClickListener? = null
     private var mPreBindInfo: PreBindInfo? = null
-    private var mMedia: ClipData.Item? = null
+    private var mMedia: Item? = null
 
     init {
         init(context)
@@ -66,7 +67,7 @@ class MediaLayout(context: Context, attrs: AttributeSet?) : RelativeLayout(conte
         }
     }
 
-    private fun bindFileMedia(info: PreBindInfo, item: ClipData.Item) {
+    private fun bindFileMedia(info: PreBindInfo, item: Item) {
         picLayout.visibility = View.GONE
         fileLayout.visibility = View.VISIBLE
         last_line.visibility = View.VISIBLE
@@ -111,8 +112,8 @@ class MediaLayout(context: Context, attrs: AttributeSet?) : RelativeLayout(conte
         file_title?.text = Html.fromHtml(titleName)
 
 
-        date_time?.text = DateUtils.formatDate(item.dataTime * 1000, "yyyy-MM-dd HH:mm:ss")
-        file_size?.text = SizeFormat.formatShortFileSize(getContext(), item.size).toUpperCase(Locale.getDefault())
+        date_time?.text = formatDate(item.dataTime * 1000, "yyyy-MM-dd HH:mm:ss")
+        file_size?.text = SizeFormat.formatShortFileSize(context, item.size).toUpperCase(Locale.getDefault())
     }
 
     override fun onClick(v: View) {
@@ -132,7 +133,7 @@ class MediaLayout(context: Context, attrs: AttributeSet?) : RelativeLayout(conte
         }
     }
 
-    fun bindMedia(info: PreBindInfo, item: ClipData.Item) {
+    fun bindMedia(info: PreBindInfo, item: Item) {
         mPreBindInfo = info
         mMedia = item
         if (SelectionSpec.getInstance().onlyShowPic()) {
@@ -169,10 +170,23 @@ class MediaLayout(context: Context, attrs: AttributeSet?) : RelativeLayout(conte
         mListener = null
     }
 
+    private fun formatDate(value: Long, format: String?): String? {
+        try {
+            val simple =
+                SimpleDateFormat(format, Locale.getDefault())
+            val date = Date()
+            date.time = value
+            return simple.format(date)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return null
+    }
+
 
     interface OnMediaItemClickListener {
-        fun onThumbnailClicked(thumbnail: ImageView?, item: ClipData.Item?, holder: RecyclerView.ViewHolder?, isFolder: Boolean)
-        fun onCheckViewClicked(checkView: CheckView?, item: ClipData.Item?, holder: RecyclerView.ViewHolder?)
+        fun onThumbnailClicked(thumbnail: ImageView?, item: Item?, holder: RecyclerView.ViewHolder?, isFolder: Boolean)
+        fun onCheckViewClicked(checkView: CheckView?, item: Item?, holder: RecyclerView.ViewHolder?)
     }
 
     class PreBindInfo(var mFileType: Int, var isCollection: Boolean, var mCheckViewCountable: Boolean,

@@ -1,13 +1,14 @@
-package com.z7dream.lib.selector.box.engine.entity
+package com.z7dream.lib.selector.box.entity
 
 import android.content.ContentUris
 import android.database.Cursor
 import android.net.Uri
 import android.os.Parcelable
 import android.provider.MediaStore
-import androidx.core.graphics.PathUtils
 import com.z7dream.lib.selector.box.MimeTypeManager
+import com.z7dream.lib.selector.box.utils.PathUtils
 import com.z7dream.lib.selector.utils.FileType
+import com.z7dream.lib.selector.utils.FileUtils
 import kotlinx.android.parcel.IgnoredOnParcel
 import kotlinx.android.parcel.Parcelize
 import java.io.File

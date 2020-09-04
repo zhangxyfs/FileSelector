@@ -1,4 +1,4 @@
-package com.z7dream.lib.selector.box.engine.entity
+package com.z7dream.lib.selector.box.entity
 
 object ConstValue {
     const val EXTRA_RESULT_SELECTION = "extra_result_selection"

@@ -1,4 +1,4 @@
-package com.eblog.base.widget.box.utils
+package com.z7dream.lib.selector.box.utils
 
 import android.annotation.TargetApi
 import android.content.ContentResolver
@@ -10,8 +10,6 @@ import android.os.Build
 import android.os.Environment
 import android.provider.DocumentsContract
 import android.provider.MediaStore
-import com.eblog.base.utils.cache.CacheManager
-import com.eblog.base.widget.matisse.internal.utils.Platform
 import java.io.File
 
 
@@ -20,6 +18,7 @@ import java.io.File
  */
 object PathUtils {
     private const val SCHEME_CONTENT = "content"
+    const val NOMEDIA = ".nomedia"
 
     var CONTENT_URL = "external"
 //            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
@@ -75,7 +74,7 @@ object PathUtils {
      */
     @TargetApi(Build.VERSION_CODES.KITKAT)
     fun getPath(context: Context, uri: Uri): String? { // DocumentProvider
-        if (Platform.hasKitKat() && DocumentsContract.isDocumentUri(context, uri)) { // ExternalStorageProvider
+        if (Platform.hasKitKat19() && DocumentsContract.isDocumentUri(context, uri)) { // ExternalStorageProvider
             if (isExternalStorageDocument(uri)) {
                 val docId = DocumentsContract.getDocumentId(uri)
                 val split = docId.split(":").toTypedArray()
@@ -181,7 +180,7 @@ object PathUtils {
             MediaScan.instance.scan(path)
         }
         for (file in fileList) {
-            if (file.name.contains(CacheManager.NOMEDIA)) {
+            if (file.name.contains(NOMEDIA)) {
                 file.delete()
             } else if (file.isDirectory) {
                 deleteNoMediaWithEsPath(file.path)

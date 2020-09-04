@@ -1,4 +1,4 @@
-package com.eblog.base.widget.box.utils
+package com.z7dream.lib.selector.box.utils
 
 import android.content.Context
 import android.content.pm.PackageManager
@@ -11,6 +11,7 @@ object Platform {
     fun hasKitKat19() = Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT
 
     fun hasKitO26() = Build.VERSION.SDK_INT >= Build.VERSION_CODES.O
+
 
 //    fun beforeAndroidTen() = Build.VERSION.SDK_INT < Build.VERSION_CODES.Q
 

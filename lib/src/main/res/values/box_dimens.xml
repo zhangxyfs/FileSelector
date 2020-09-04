@@ -6,4 +6,5 @@
     <dimen name="box_view_width_32">32dp</dimen>
 
     <dimen name="box_font_sp_14">14sp</dimen>
+    <dimen name="box_media_grid_spacing">4dp</dimen>
 </resources>
