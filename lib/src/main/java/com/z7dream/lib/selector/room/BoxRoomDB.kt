@@ -14,7 +14,7 @@ import com.z7dream.lib.selector.room.migrate.RoomDBMigration
         FileStarEntity::class
     ]
 )
-abstract class RoomDB() : RoomDatabase() {
+abstract class BoxRoomDB() : RoomDatabase() {
 
     /**
      * 星标文件列表
@@ -22,10 +22,10 @@ abstract class RoomDB() : RoomDatabase() {
     abstract fun fileStartDao(): FileStarDao
 
     companion object {
-        private var instance: RoomDB? = null
+        private var instance: BoxRoomDB? = null
 
         @Synchronized
-        fun get(): RoomDB = instance ?: synchronized(this) {
+        fun get(): BoxRoomDB = instance ?: synchronized(this) {
             val context = Z7Plugin.instance.getListener()!!.applicationContext()
             instance ?: buildDatabase(context).also { instance = it }
         }
@@ -33,7 +33,7 @@ abstract class RoomDB() : RoomDatabase() {
         private fun buildDatabase(context: Context) =
             Room.databaseBuilder(
                 context.applicationContext,
-                RoomDB::class.java, "RoomDatabase.db"
+                BoxRoomDB::class.java, "BoxDB.db"
             ).addMigrations(
                 RoomDBMigration.migration_1_2()
             ).build()

@@ -50,7 +50,10 @@ class FolderDataLoader(
                     .append(searchValue)
                     .append("%'")
             }
-            searchSelection.append(" AND ")
+            if (searchSelection.isNotEmpty()) {
+                searchSelection.append(" AND ")
+            }
+            searchSelection
                 .append(MediaStore.Files.FileColumns.DISPLAY_NAME)
                 .append(" is not null")
                 .append(" AND ")
@@ -69,16 +72,17 @@ class FolderDataLoader(
         private fun getRootFileListSelection(): String {
             val fileList = File(CacheManager.getSaveFilePath())
             val searchSelection = StringBuilder()
-            val fileArray = fileList.listFiles()
-            searchSelection.append("(")
-            fileArray.forEachIndexed { index, file ->
-                searchSelection.append(PathUtils.FILE_PATH)
-                    .append("='").append(file.path).append("'")
-                if (index < fileArray.size - 1) {
-                    searchSelection.append(" OR ")
+            fileList.listFiles()?.apply {
+                searchSelection.append("(")
+                forEachIndexed { index, file ->
+                    searchSelection.append(PathUtils.FILE_PATH)
+                        .append("='").append(file.path).append("'")
+                    if (index < size - 1) {
+                        searchSelection.append(" OR ")
+                    }
                 }
+                searchSelection.append(")")
             }
-            searchSelection.append(")")
             return searchSelection.toString()
         }
 
@@ -95,7 +99,7 @@ class FolderDataLoader(
                 }
             val fileArray = File(needPath).listFiles()
             val searchSelection = StringBuilder()
-            if (fileArray.isEmpty()) {
+            if (fileArray.isNullOrEmpty()) {
                 searchSelection
                     .append(PathUtils.FILE_PATH)
                     .append(" like '").append(needPath).append("%' AND ")
@@ -199,7 +203,8 @@ class FolderDataLoader(
             }
             val list = ArrayList<String>()
             if (stringBuffer.isNotEmpty()) {
-                val l = Gson().fromJson<List<WPSUtils.WPSJSONBean>>(stringBuffer.toString(),
+                val l = Gson().fromJson<List<WPSUtils.WPSJSONBean>>(
+                    stringBuffer.toString(),
                     object : TypeToken<List<WPSUtils.WPSJSONBean>>() {
                     }.type
                 )

@@ -1,10 +1,10 @@
 package com.eblog.base.widget.box.filter
 
 import android.content.Context
-import com.eblog.base.widget.box.MimeType
-import com.eblog.base.widget.box.MimeTypeManager
 import com.z7dream.lib.selector.box.entity.Item
-import com.eblog.base.widget.matisse.internal.entity.IncapableCause
+import com.z7dream.lib.selector.box.MimeType
+import com.z7dream.lib.selector.box.MimeTypeManager
+import com.z7dream.lib.selector.box.entity.IncapableCause
 
 abstract class Filter {
     companion object {

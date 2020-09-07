@@ -17,9 +17,8 @@ import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import com.z7dream.lib.selector.box.ui.FileDatabaseSelectionFragment.Companion.MEDIA_FRAGMENT_LIST
 import com.z7dream.lib.selector.box.ui.FileDatabaseSelectionFragment.Companion.MEDIA_FRAGMENT_SEARCH
-import com.eblog.base.widget.box.ui.FolderSelectionFragment
-import com.eblog.base.widget.box.ui.FolderSelectionFragment.Companion.FOLDER_FRAGMENT_LIST
-import com.eblog.base.widget.box.ui.FolderSelectionFragment.Companion.FOLDER_FRAGMENT_SEARCH
+import com.z7dream.lib.selector.box.ui.FolderSelectionFragment.Companion.FOLDER_FRAGMENT_LIST
+import com.z7dream.lib.selector.box.ui.FolderSelectionFragment.Companion.FOLDER_FRAGMENT_SEARCH
 import com.z7dream.lib.selector.box.ui.StarSelectionFrament.Companion.STAR_FRAGMENT_LIST
 import com.z7dream.lib.selector.box.ui.StarSelectionFrament.Companion.STAR_FRAGMENT_SEARCH
 import com.eblog.base.widget.box.ui.adapter.FileAlbumAdapter
@@ -27,9 +26,12 @@ import com.eblog.base.widget.box.ui.view.FragmentImpl
 import com.z7dream.lib.selector.box.ui.view.SelectionProvider
 import com.z7dream.lib.selector.R
 import com.z7dream.lib.selector.box.SelectionSpec
+import com.z7dream.lib.selector.box.entity.Item
 import com.z7dream.lib.selector.box.model.SelectedItemCollection
+import com.z7dream.lib.selector.box.widget.FileManagerDialog
 import com.z7dream.lib.selector.utils.CacheManager
 import com.z7dream.lib.selector.utils.OpenFileUtils
+import kotlinx.android.synthetic.main.activity_box.*
 import java.io.File
 
 /**
@@ -135,7 +137,7 @@ class BoxActivity : BoxBaseActivity(), SelectionProvider,
         menuInflater.inflate(R.menu.page_menu, menu)
         choiceItem = menu.findItem(R.id.firstBtn)
         val secItem = menu.findItem(R.id.secondBtn)
-        choiceItem?.setTitle(R.string.choice_str)
+        choiceItem?.setTitle(R.string.box_choice_str)
         secItem.isVisible = false
         choiceItem?.isVisible = mHasDataMap[getFirstFragmentTag()] ?: false
         return true
@@ -212,16 +214,17 @@ class BoxActivity : BoxBaseActivity(), SelectionProvider,
     override fun onMediaClick(item: Item?, adapterPosition: Int, isFolder: Boolean) {
         when {
             item?.isPic() == true -> {
-                FileManager.instance.nextPicDisplay()
-                        .setMaxNum(1)
-                        .setDefPos(0)
-                        .setOnlyDisplay(true)
-                        .setDisplayDel(true)
-                        .setDisplayList(item.filePath)
-                        .build(this)
+                //todo 展现图片
+//                FileManager.instance.nextPicDisplay()
+//                        .setMaxNum(1)
+//                        .setDefPos(0)
+//                        .setOnlyDisplay(true)
+//                        .setDisplayDel(true)
+//                        .setDisplayList(item.filePath)
+//                        .build(this)
             }
             else -> {
-                OpenFileUtils.openFile(item?.filePath)
+                OpenFileUtils.openFile(this, item?.filePath)
             }
         }
     }
@@ -356,7 +359,7 @@ class BoxActivity : BoxBaseActivity(), SelectionProvider,
         switchToSearch()
         getSearchBtnView().visibility = View.GONE
         getSearchLayoutView().visibility = View.VISIBLE
-        mToolbar.setBackgroundResource(R.drawable.bg_background_100dp)
+        mToolbar.setBackgroundResource(R.drawable.box_bg_background_100dp)
         supportActionBar?.title = ""
         choiceItem?.isVisible = false
         setFocus()
@@ -369,7 +372,7 @@ class BoxActivity : BoxBaseActivity(), SelectionProvider,
     private fun closeCheck() {
         isOpenCheck = false
         isClickSelectAll = false
-        choiceItem?.setTitle(R.string.choice_str)
+        choiceItem?.setTitle(R.string.box_choice_str)
         mFragmentImpl?.openCheck(isOpenCheck)
         mFragmentImpl?.clearSelectAll(true)
         mFileManagerDialog.dismiss()
@@ -389,7 +392,7 @@ class BoxActivity : BoxBaseActivity(), SelectionProvider,
 
     private fun isNotSelectFile(): Boolean {
         if (mSelectedCollection.items().isEmpty()) {
-            showToast(R.string.please_choose_afile_str)
+            Toast.makeText(this, R.string.please_choose_afile_str, Toast.LENGTH_SHORT).show()
             return true
         }
         return false
@@ -402,7 +405,7 @@ class BoxActivity : BoxBaseActivity(), SelectionProvider,
     private fun getSearchEditView() = findViewById<EditText>(R.id.search_edit)
 
     private fun initToolbar() {
-        mInputManager = Appli.getContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        mInputManager = applicationContext.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
 
         mToolbar = findViewById<View>(R.id.toolbar) as Toolbar
         setSupportActionBar(mToolbar)
@@ -446,7 +449,7 @@ class BoxActivity : BoxBaseActivity(), SelectionProvider,
         getSearchBtnView().setOnClickListener(this)
         getSearchEditView()?.setOnEditorActionListener(this)
         getSearchEditView()?.addTextChangedListener(this)
-        getSearchEditView()?.setHintTextColor(resources.getColor(R.color.color_white))
+        getSearchEditView()?.setHintTextColor(resources.getColor(R.color.box_color_white))
         getSearchEditView()?.setOnClickListener(this)
     }
 

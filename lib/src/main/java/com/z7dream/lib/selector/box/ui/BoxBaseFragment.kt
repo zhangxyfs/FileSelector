@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.z7dream.lib.selector.BuildConfig
 
 /**
  * 文件管理器基类

@@ -5,10 +5,10 @@ import android.database.Cursor
 import android.text.TextUtils
 import android.util.Log
 import com.z7dream.lib.selector.box.entity.Item
-import com.z7dream.lib.selector.room.RoomDB
+import com.z7dream.lib.selector.room.BoxRoomDB
 import com.z7dream.lib.selector.room.dao.file.FileStarDao
 import com.z7dream.lib.selector.room.entity.file.FileStarEntity
-import com.z7dream.lib.selector.utils.callback.Callback
+import com.z7dream.lib.selector.utils.callback.Z7Callback
 import com.z7dream.lib.selector.utils.rx.RxSchedulersHelper
 import io.reactivex.rxjava3.core.Observable
 import java.io.File
@@ -37,7 +37,7 @@ class FileStarManager private constructor() {
         userId: Long?,
         companyId: Long?,
         fileItemList: List<Item>,
-        callback: Callback.Callback<String>?
+        callback: Z7Callback.Callback<String>?
     ) {
         val fileHasMap = HashMap<String, Item>()
         val filePathList = ArrayList<String>()
@@ -113,7 +113,7 @@ class FileStarManager private constructor() {
         userId: Long?,
         companyId: Long?,
         fileItemList: List<Item>,
-        callback: Callback.Callback<String>?
+        callback: Z7Callback.Callback<String>?
     ) {
         val fileHasMap = HashMap<String, Item>()
         val filePathList = ArrayList<String>()
@@ -229,7 +229,7 @@ class FileStarManager private constructor() {
 
     private fun dao(): FileStarDao {
         if (mDao == null) {
-            mDao = RoomDB.get().fileStartDao()
+            mDao = BoxRoomDB.get().fileStartDao()
         }
         return mDao!!
     }

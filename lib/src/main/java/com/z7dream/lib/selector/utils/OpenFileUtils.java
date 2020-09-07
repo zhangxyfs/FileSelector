@@ -10,7 +10,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Toast;
 
-import com.z7dream.lib.selector.utils.callback.Callback;
+import com.z7dream.lib.selector.utils.callback.Z7Callback;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -400,7 +400,7 @@ public class OpenFileUtils {
         }
     }
 
-    public static void openFile(Context context, String filePath, Callback.Callback<String> callback) {
+    public static void openFile(Context context, String filePath, Z7Callback.Callback<String> callback) {
         String finishExc = FileUtils.getExtensionName(filePath);
         int type = FileType.createFileType(finishExc);
         switch (type) {

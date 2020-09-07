@@ -21,13 +21,17 @@ import com.eblog.base.widget.box.ui.view.FragmentImpl
 import com.z7dream.lib.selector.box.ui.view.SelectionProvider
 import com.z7dream.lib.selector.R
 import com.z7dream.lib.selector.Z7Plugin
+import com.z7dream.lib.selector.box.Box
 import com.z7dream.lib.selector.box.SelectionSpec
 import com.z7dream.lib.selector.box.entity.Item
 import com.z7dream.lib.selector.box.model.ArgsBean
 import com.z7dream.lib.selector.box.model.FileAlbumCallbacks
+import com.z7dream.lib.selector.box.model.FileManagerModel
 import com.z7dream.lib.selector.box.utils.MediaGridInset
+import com.z7dream.lib.selector.box.utils.PathUtils
 import com.z7dream.lib.selector.room.manager.file.FileStarManager
 import com.z7dream.lib.selector.utils.FileType
+import com.z7dream.lib.selector.utils.FileUtils
 import com.z7dream.lib.selector.utils.SizeFormat
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -289,7 +293,7 @@ abstract class SelectionBaseFragment : BoxBaseFragment(), FileAlbumCallbacks, Fi
                 for (index in it.indices) {
                     pathArray[index] = it[index].filePath
                 }
-                intent.putExtra(FileManager.PIC_INTENT_SELECT_DATA, pathArray)
+                intent.putExtra(Box.PIC_INTENT_SELECT_DATA, pathArray)
             } else {
                 val modelList = ArrayList<FileManagerModel>()
                 for (index in it.indices) {
@@ -298,7 +302,7 @@ abstract class SelectionBaseFragment : BoxBaseFragment(), FileAlbumCallbacks, Fi
                     val fileType = FileType.createFileType(ext)
                     modelList.add(FileManagerModel().createModel(filePath,fileType))
                 }
-                intent.putExtra(FileManager.FILE_INTENT_SELECT_DATA, modelList.toTypedArray())
+                intent.putExtra(Box.FILE_INTENT_SELECT_DATA, modelList.toTypedArray())
             }
 
             activity.setResult(Activity.RESULT_OK, intent)
@@ -399,7 +403,7 @@ abstract class SelectionBaseFragment : BoxBaseFragment(), FileAlbumCallbacks, Fi
      */
     override fun share() {
         selectionProvider.provideSelectedItemCollection().items().also {
-            CommonSharingUtils.shareFiles(it[0].filePath, context)
+            Z7Plugin.instance.getListener()?.share(context, it[0].filePath)
         }
     }
 

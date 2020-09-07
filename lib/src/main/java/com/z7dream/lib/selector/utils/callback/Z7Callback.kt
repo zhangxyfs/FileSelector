@@ -1,6 +1,6 @@
 package com.z7dream.lib.selector.utils.callback
 
-object Callback {
+object Z7Callback {
     interface Callback<IN1>{
         fun event(var1: IN1)
     }

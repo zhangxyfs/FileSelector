@@ -20,8 +20,8 @@
             android:layout_marginTop="4dp"
             android:gravity="center"
             android:text="@string/pic_str"
-            android:textColor="@color/color_font_high"
-            android:textSize="@dimen/font_sp_14" />
+            android:textColor="@color/box_color_font_high"
+            android:textSize="@dimen/box_font_sp_14" />
 
         <TextView
             android:id="@+id/picNum"
@@ -31,8 +31,8 @@
             android:gravity="center"
             android:maxLines="1"
             android:singleLine="true"
-            android:textColor="@color/color_font_high"
-            android:textSize="@dimen/font_sp_14" />
+            android:textColor="@color/box_color_font_high"
+            android:textSize="@dimen/box_font_sp_14" />
     </LinearLayout>
 
     <LinearLayout
@@ -58,8 +58,8 @@
             android:layout_marginTop="4dp"
             android:gravity="center"
             android:text="@string/audio_str"
-            android:textColor="@color/color_font_high"
-            android:textSize="@dimen/font_sp_14" />
+            android:textColor="@color/box_color_font_high"
+            android:textSize="@dimen/box_font_sp_14" />
 
         <TextView
             android:id="@+id/audioNum"
@@ -69,8 +69,8 @@
             android:gravity="center"
             android:maxLines="1"
             android:singleLine="true"
-            android:textColor="@color/color_font_high"
-            android:textSize="@dimen/font_sp_14" />
+            android:textColor="@color/box_color_font_high"
+            android:textSize="@dimen/box_font_sp_14" />
     </LinearLayout>
 
     <LinearLayout
@@ -92,8 +92,8 @@
             android:layout_marginTop="4dp"
             android:gravity="center"
             android:text="@string/video_str"
-            android:textColor="@color/color_font_high"
-            android:textSize="@dimen/font_sp_14" />
+            android:textColor="@color/box_color_font_high"
+            android:textSize="@dimen/box_font_sp_14" />
 
         <TextView
             android:id="@+id/videoNum"
@@ -103,8 +103,8 @@
             android:gravity="center"
             android:maxLines="1"
             android:singleLine="true"
-            android:textColor="@color/color_font_high"
-            android:textSize="@dimen/font_sp_14" />
+            android:textColor="@color/box_color_font_high"
+            android:textSize="@dimen/box_font_sp_14" />
 
     </LinearLayout>
 
@@ -129,8 +129,8 @@
             android:layout_marginTop="4dp"
             android:gravity="center"
             android:text="@string/txt_str"
-            android:textColor="@color/color_font_high"
-            android:textSize="@dimen/font_sp_14" />
+            android:textColor="@color/box_color_font_high"
+            android:textSize="@dimen/box_font_sp_14" />
 
         <TextView
             android:id="@+id/txtNum"
@@ -140,8 +140,8 @@
             android:gravity="center"
             android:maxLines="1"
             android:singleLine="true"
-            android:textColor="@color/color_font_high"
-            android:textSize="@dimen/font_sp_14" />
+            android:textColor="@color/box_color_font_high"
+            android:textSize="@dimen/box_font_sp_14" />
     </LinearLayout>
 
     <LinearLayout
@@ -164,8 +164,8 @@
             android:layout_marginTop="4dp"
             android:gravity="center"
             android:text="@string/excel_str"
-            android:textColor="@color/color_font_high"
-            android:textSize="@dimen/font_sp_14" />
+            android:textColor="@color/box_color_font_high"
+            android:textSize="@dimen/box_font_sp_14" />
 
         <TextView
             android:id="@+id/excelNum"
@@ -175,8 +175,8 @@
             android:gravity="center"
             android:maxLines="1"
             android:singleLine="true"
-            android:textColor="@color/color_font_high"
-            android:textSize="@dimen/font_sp_14" />
+            android:textColor="@color/box_color_font_high"
+            android:textSize="@dimen/box_font_sp_14" />
 
     </LinearLayout>
 
@@ -201,8 +201,8 @@
             android:layout_marginTop="4dp"
             android:gravity="center"
             android:text="@string/ppt_str"
-            android:textColor="@color/color_font_high"
-            android:textSize="@dimen/font_sp_14" />
+            android:textColor="@color/box_color_font_high"
+            android:textSize="@dimen/box_font_sp_14" />
 
         <TextView
             android:id="@+id/pptNum"
@@ -212,8 +212,8 @@
             android:gravity="center"
             android:maxLines="1"
             android:singleLine="true"
-            android:textColor="@color/color_font_high"
-            android:textSize="@dimen/font_sp_14" />
+            android:textColor="@color/box_color_font_high"
+            android:textSize="@dimen/box_font_sp_14" />
 
     </LinearLayout>
 
@@ -236,8 +236,8 @@
             android:layout_marginTop="4dp"
             android:gravity="center"
             android:text="@string/word_str"
-            android:textColor="@color/color_font_high"
-            android:textSize="@dimen/font_sp_14" />
+            android:textColor="@color/box_color_font_high"
+            android:textSize="@dimen/box_font_sp_14" />
 
         <TextView
             android:id="@+id/wordNum"
@@ -247,8 +247,8 @@
             android:gravity="center"
             android:maxLines="1"
             android:singleLine="true"
-            android:textColor="@color/color_font_high"
-            android:textSize="@dimen/font_sp_14" />
+            android:textColor="@color/box_color_font_high"
+            android:textSize="@dimen/box_font_sp_14" />
 
     </LinearLayout>
 
@@ -275,8 +275,8 @@
             android:layout_marginTop="4dp"
             android:gravity="center"
             android:text="@string/pdf_str"
-            android:textColor="@color/color_font_high"
-            android:textSize="@dimen/font_sp_14" />
+            android:textColor="@color/box_color_font_high"
+            android:textSize="@dimen/box_font_sp_14" />
 
         <TextView
             android:id="@+id/pdfNum"
@@ -286,8 +286,8 @@
             android:gravity="center"
             android:maxLines="1"
             android:singleLine="true"
-            android:textColor="@color/color_font_high"
-            android:textSize="@dimen/font_sp_14" />
+            android:textColor="@color/box_color_font_high"
+            android:textSize="@dimen/box_font_sp_14" />
 
     </LinearLayout>
 
@@ -310,8 +310,8 @@
             android:layout_marginTop="4dp"
             android:gravity="center"
             android:text="@string/other_str"
-            android:textColor="@color/color_font_high"
-            android:textSize="@dimen/font_sp_14" />
+            android:textColor="@color/box_color_font_high"
+            android:textSize="@dimen/box_font_sp_14" />
 
         <TextView
             android:id="@+id/zipNum"
@@ -321,8 +321,8 @@
             android:gravity="center"
             android:maxLines="1"
             android:singleLine="true"
-            android:textColor="@color/color_font_high"
-            android:textSize="@dimen/font_sp_14" />
+            android:textColor="@color/box_color_font_high"
+            android:textSize="@dimen/box_font_sp_14" />
 
     </LinearLayout>
 </merge>

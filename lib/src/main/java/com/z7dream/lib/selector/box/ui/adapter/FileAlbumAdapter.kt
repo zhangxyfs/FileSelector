@@ -7,13 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.eblog.base.R
-import com.eblog.base.widget.box.SelectionSpec
-import com.eblog.base.widget.box.entity.Item
-import com.eblog.base.widget.box.model.SelectedItemCollection
-import com.eblog.base.widget.box.widget.CheckView
-import com.eblog.base.widget.box.widget.MediaLayout
-import com.eblog.base.widget.matisse.internal.entity.IncapableCause
+import com.z7dream.lib.selector.R
+import com.z7dream.lib.selector.box.SelectionSpec
+import com.z7dream.lib.selector.box.entity.IncapableCause
+import com.z7dream.lib.selector.box.entity.Item
+import com.z7dream.lib.selector.box.model.SelectedItemCollection
+import com.z7dream.lib.selector.box.widget.CheckView
+import com.z7dream.lib.selector.box.widget.MediaLayout
 
 /**
  * 文件选择 适配器
@@ -67,7 +67,7 @@ class FileAlbumAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         when (viewType) {
             VIEW_TYPE_MEDIA -> {
-                return MediaViewHolder(layoutInflater.inflate(R.layout.item_file_media, parent, false))
+                return MediaViewHolder(layoutInflater.inflate(R.layout.box_item_file_media, parent, false))
             }
             else -> {
                 return EndViewHolder(layoutInflater.inflate(R.layout.widget_pull_to_refresh_end, parent, false))

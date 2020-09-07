@@ -18,4 +18,34 @@
     <string name="button_sure">Sure(%1$d)</string>
 
     <string name="only_choice_n_filesize_str">Can only select Files smaller than %1$s</string>
+    <string name="search_str">Search</string>
+    <string name="no_data_str">Temporary No data</string>
+    <string name="clear_select_all_str">Deselect all</string>
+    <string name="select_all_str">Select all</string>
+    <string name="send_str">Send</string>
+    <string name="forward_str">Forward</string>
+    <string name="download_str">Download</string>
+    <string name="rename_str">Rename</string>
+    <string name="star_file_str">Starred files</string>
+    <string name="share_str">Share</string>
+    <string name="delete_str">Delete</string>
+
+    <string name="box_star_file_str">Starred files</string>
+    <string name="box_star_cancel_str">Unstar</string>
+    <string name="box_choice_str">Select</string>
+    <string name="please_choose_afile_str">Please choose a file.</string>
+    <string name="widget_alert_edit_new_name_str">Enter a new name.</string>
+    <string name="widget_alert_edit_title_str">Rename</string>
+    <string name="hasnot_more_info_str">No more</string>
+    <string name="confirm_str">Confirm</string>
+    <string name="cancel_str">Cancel</string>
+    <string name="pic_str">Image</string>
+    <string name="audio_str">Audio</string>
+    <string name="video_str">Video</string>
+    <string name="txt_str">TXT</string>
+    <string name="ppt_str">PPT</string>
+    <string name="word_str">WORD</string>
+    <string name="pdf_str">PDF</string>
+    <string name="excel_str">EXCEL</string>
+    <string name="other_str">Others</string>
 </resources>

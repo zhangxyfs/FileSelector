@@ -3,9 +3,9 @@ package com.z7dream.lib.selector.box
 import android.content.pm.ActivityInfo
 import androidx.annotation.StyleRes
 import com.eblog.base.widget.box.engine.ImageEngine
-import com.eblog.base.widget.box.engine.impl.GlideEngine
 import com.eblog.base.widget.box.filter.Filter
 import com.z7dream.lib.selector.R
+import com.z7dream.lib.selector.Z7Plugin
 
 class SelectionSpec {
     /**
@@ -125,7 +125,7 @@ class SelectionSpec {
         isSudioku = false
         is30Days = false
         requestCode = 0
-        imageEngine = GlideEngine()
+        imageEngine = Z7Plugin.instance.getListener()?.getImageEngine()
     }
 
     // 是否可计数

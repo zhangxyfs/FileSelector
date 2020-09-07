@@ -1,11 +1,10 @@
-package com.eblog.base.widget.box.ui
+package com.z7dream.lib.selector.box.ui
 
 import android.os.Bundle
-import com.eblog.base.utils.cache.CacheManager
-import com.eblog.base.utils.tools.FileUtils
-import com.eblog.base.widget.box.entity.Item
-import com.eblog.base.widget.box.model.FolderCollection
-import com.z7dream.lib.selector.box.ui.SelectionBaseFragment
+import com.z7dream.lib.selector.box.entity.Item
+import com.z7dream.lib.selector.box.model.FolderCollection
+import com.z7dream.lib.selector.utils.CacheManager
+import com.z7dream.lib.selector.utils.FileUtils
 import java.io.File
 
 /**

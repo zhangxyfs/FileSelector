@@ -62,6 +62,7 @@ class Box private constructor(val activity: Activity?, val fragment: Fragment?) 
     companion object {
         const val FILE_MANAGER_REQUEST_CODE = 9166
         const val PIC_INTENT_SELECT_DATA = "pic_select_data"
+        const val FILE_INTENT_SELECT_DATA = "file_select_data"
 
         fun from(activity: Activity?): Box {
             return Box(activity)

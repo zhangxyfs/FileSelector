@@ -10,7 +10,7 @@ import com.z7dream.lib.selector.box.SelectionSpec
 import com.z7dream.lib.selector.box.entity.IncapableCause
 import com.z7dream.lib.selector.box.entity.Item
 import com.z7dream.lib.selector.box.loader.FileDataLoader
-import com.z7dream.lib.selector.utils.callback.Callback
+import com.z7dream.lib.selector.utils.callback.Z7Callback
 import com.z7dream.lib.selector.utils.rx.RxSchedulersHelper
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.Disposable
@@ -18,7 +18,7 @@ import java.util.ArrayList
 
 object BoxUtils {
 
-    fun getAllFileCount(callback: Callback.Callback10<Int, Int, ArrayList<Disposable>>) {
+    fun getAllFileCount(callback: Z7Callback.Callback10<Int, Int, ArrayList<Disposable>>) {
         val context = Z7Plugin.instance.getListener()?.applicationContext()
         val list = ArrayList<Disposable>()
         list.add(

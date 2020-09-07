@@ -1,0 +1,18 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:background="@color/boxBackground"
+    android:clickable="false"
+    android:focusable="false"
+    android:minHeight="70dp">
+
+    <TextView
+        android:id="@+id/end"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:text="@string/hasnot_more_info_str"
+        android:textColor="@color/box_color_font_low"
+        android:textSize="14sp" />
+</LinearLayout>

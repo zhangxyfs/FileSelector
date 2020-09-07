@@ -33,4 +33,5 @@
     <color name="box_color_font_high">#1A1A1C</color>
     <color name="box_color_font_middle">#999999</color>
     <color name="box_color_divider">#D8D8D8</color>
+    <color name="box_color_font_low">#b2b2b2</color>
 </resources>

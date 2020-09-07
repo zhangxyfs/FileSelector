@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.appbar.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/box_color_white"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/Base.AppBar.Theme"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/box_margin_normal"
+            android:layout_marginTop="@dimen/box_margin_widget"
+            android:layout_marginEnd="@dimen/box_margin_normal"
+            android:layout_marginBottom="@dimen/box_margin_widget"
+            android:background="@drawable/box_bg_background_100dp"
+            android:paddingStart="-8dp"
+            android:paddingEnd="0dp"
+            android:theme="@style/BoxAppTheme.Toolbar"
+            app:title="">
+
+            <RelativeLayout
+                android:id="@+id/content_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:id="@+id/search_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:paddingEnd="45dp"
+                    android:paddingStart="0dp"
+                    android:imeOptions="actionSearch"
+                    android:singleLine="true"
+                    android:textColor="@color/box_color_font_high"
+                    android:textSize="@dimen/box_font_sp_14" />
+
+                <ImageView
+                    android:id="@+id/search_close"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/box_margin_widget"
+                    android:src="@drawable/box_ic_close_black_14dp"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </androidx.appcompat.widget.Toolbar>
+    </LinearLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        style="@style/BoxAppTheme.TabLayout"
+        android:visibility="gone" />
+
+</com.google.android.material.appbar.AppBarLayout>

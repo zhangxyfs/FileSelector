@@ -3,6 +3,7 @@ package com.z7dream.lib.selector.box.ui
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.z7dream.lib.selector.BuildConfig
 
 /**
  * 文件管理器基类

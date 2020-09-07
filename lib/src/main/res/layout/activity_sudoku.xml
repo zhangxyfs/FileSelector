@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:background="@color/boxBackground">
 
-    <include layout="@layout/include_toolbar" />
+    <include layout="@layout/box_toolbar" />
 
     <com.z7dream.lib.selector.box.widget.SudokuLayout
         android:id="@+id/sudoku"
